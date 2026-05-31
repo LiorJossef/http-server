@@ -1,0 +1,203 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0f0f13;
+  color: #e2e8f0;
+  min-height: 100vh;
+  padding: 40px 16px;
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 32px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #818cf8, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+#add-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+#add-form input {
+  flex: 1;
+  min-width: 120px;
+  padding: 10px 14px;
+  background: #1e1e2e;
+  border: 1px solid #2e2e3e;
+  border-radius: 8px;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#add-form input:focus {
+  border-color: #818cf8;
+}
+
+#add-form input::placeholder {
+  color: #475569;
+}
+
+#add-form button {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #818cf8, #c084fc);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: opacity 0.2s;
+}
+
+#add-form button:hover {
+  opacity: 0.85;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.filter {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid #2e2e3e;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.filter:hover {
+  border-color: #818cf8;
+  color: #818cf8;
+}
+
+.filter.active {
+  background: #818cf8;
+  border-color: #818cf8;
+  color: white;
+}
+
+#assignments {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.assignment-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #1e1e2e;
+  border: 1px solid #2e2e3e;
+  border-radius: 12px;
+  transition: border-color 0.2s;
+}
+
+.assignment-item:hover {
+  border-color: #3e3e5e;
+}
+
+.assignment-item.done {
+  opacity: 0.5;
+}
+
+.assignment-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #818cf8;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.assignment-info {
+  flex: 1;
+}
+
+.assignment-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.assignment-item.done .assignment-title {
+  text-decoration: line-through;
+  color: #475569;
+}
+
+.assignment-meta {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.course-tag {
+  background: #2e2e3e;
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: #a5b4fc;
+}
+
+.due-date {
+  color: #64748b;
+}
+
+.due-date.overdue {
+  color: #f87171;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #475569;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.delete-btn:hover {
+  color: #f87171;
+}
+
+.empty {
+  text-align: center;
+  color: #475569;
+  padding: 40px 0;
+  font-size: 0.9rem;
+}
