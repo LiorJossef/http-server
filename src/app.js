@@ -41,6 +41,9 @@ function createApp() {
 
           const req = parseRequest(rawData);
           const res = createResponse(socket);
+          const methodColors = { GET: '\x1b[32m', POST: '\x1b[33m', PUT: '\x1b[34m', DELETE: '\x1b[31m' };
+          const color = methodColors[req.method] || '\x1b[36m';
+          console.log(`${color}${req.method}\x1b[0m ${req.path}`);
 
           const matched = router.match(req.method, req.path);
 
