@@ -16,6 +16,8 @@ function createResponse(socket) {
   const headers = { 'Connection': 'close' };
 
   const res = {
+    sent: false,
+
     status(code) {
       statusCode = code;
       return this;
@@ -37,6 +39,7 @@ function createResponse(socket) {
         response += `${k}: ${v}\r\n`;
       }
       response += '\r\n' + body;
+      res.sent = true;
       socket.end(response);
     },
 

@@ -46,11 +46,17 @@ function createApp() {
 
           if (matched) {
             req.params = matched.params;
-            try {
-              matched.handler(req, res);
-            } catch (err) {
-              res.status(500).json({ error: 'Internal Server Error' });
-            }
+            Promise.resolve(matched.handler(req, res))
+              .then((returnValue) => {
+                if (returnValue !== undefined && !res.sent) {
+                  res.json(returnValue);
+                }
+              })
+              .catch((err) => {
+                if (!res.sent) {
+                  res.status(500).json({ error: err.message || 'Internal Server Error' });
+                }
+              });
             return;
           }
 
