@@ -15,6 +15,11 @@ function createApp() {
     put: (path, handler) => { router.put(path, handler); return app; },
     delete: (path, handler) => { router.delete(path, handler); return app; },
 
+    group(prefix, callback) {
+      router.group(prefix, callback);
+      return app;
+    },
+
     static(prefix, dir) {
       if (!dir) {
         dir = prefix;
