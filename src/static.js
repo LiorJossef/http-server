@@ -6,7 +6,8 @@ function serveStatic(staticDir) {
   const resolvedDir = path.resolve(staticDir);
 
   return function (req, res, socket) {
-    const filePath = path.join(resolvedDir, req.path);
+    const requestPath = req.path === '/' ? '/index.html' : req.path;
+    const filePath = path.join(resolvedDir, requestPath);
     const resolvedPath = path.resolve(filePath);
 
     if (!resolvedPath.startsWith(resolvedDir)) {
